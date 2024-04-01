@@ -25,5 +25,6 @@ EXPOSE 3000
 # EXPOSE 80
 
 # CMD ["nginx", "-g", "daemon off;"]
+
 # CMD ["npm start", "build/index.html"]
 CMD ["serve", "-s", "build"]
