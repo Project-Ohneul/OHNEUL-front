@@ -68,30 +68,30 @@ jobs:
             git pull origin main
             npm install
 
-      - name: Build project
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /home/ec2-user/OHNEUL-front
-            npm run build
+      # - name: Build project
+      #   uses: appleboy/ssh-action@v0.1.6
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       cd /home/ec2-user/OHNEUL-front
+      #       npm run build
 
-      - name: Restart server
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            pm2 restart ohneul-client || pm2 start npm --name ohneul-client -- start:dev
+      # - name: Restart server
+      #   uses: appleboy/ssh-action@v0.1.6
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       pm2 restart ohneul-client || pm2 start npm --name ohneul-client -- start:dev
 
-      - name: Check PM2 list
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            pm2 list
+      # - name: Check PM2 list
+      #   uses: appleboy/ssh-action@v0.1.6
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       pm2 list
