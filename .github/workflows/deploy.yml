@@ -58,7 +58,7 @@ jobs:
             echo "REACT_APP_TOSS_PAYMENTS_SECRET_KEY=${{ secrets.REACT_APP_TOSS_PAYMENTS_SECRET_KEY }}" >> .env
 
             # Install project dependencies
-            npm ci
+            npm install
 
             # Build project
             npm run build
