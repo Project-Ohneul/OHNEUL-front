@@ -32,7 +32,7 @@ function Nickname() {
         );
         if (response.data.username) goHobbt();
       } catch (e) {
-        throw new Error('유저 정보 가져오기 실패')
+        throw new Error('유저 정보 가져오기 실패');
       }
     };
     fetchUser();
@@ -44,36 +44,29 @@ function Nickname() {
       setNickname('');
       goHobbt();
     } catch (e) {
-      throw new Error('유저 닉네임 등록 실패')
+      throw new Error('유저 닉네임 등록 실패');
     }
   };
 
   return (
     <>
-      <motion.div
-        className="loginPage"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 2 }}
-        exit={{ opacity: 0 }}
-      >
-        <Header nonvisible={true} />
-        <Container>
-          <Title>사용 할 닉네임을 입력해주세요</Title>
-          <Wrapper>
-            <P>닉네임</P>
-            <Input
-              type="text"
-              value={nickname}
-              onChange={(e) => {
-                setNickname(e.target.value);
-              }}
-            />
-          </Wrapper>
-          <Button width="200px" height="40px" onClick={handleSubmit}>
-            시작하기
-          </Button>
-        </Container>
-      </motion.div>
+      <Header nonvisible={true} />
+      <Container>
+        <Title>사용 할 닉네임을 입력해주세요</Title>
+        <Wrapper>
+          <P>닉네임</P>
+          <Input
+            type="text"
+            value={nickname}
+            onChange={(e) => {
+              setNickname(e.target.value);
+            }}
+          />
+        </Wrapper>
+        <Button width="200px" height="40px" onClick={handleSubmit}>
+          시작하기
+        </Button>
+      </Container>
     </>
   );
 }
