@@ -12,7 +12,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -36,43 +35,63 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Run SSH scripts
+      - name: Create folder
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Delete folders if they exist
-            if [ -d /home/ec2-user/OHNEUL-front ]; then
-              sudo rm -rf /home/ec2-user/OHNEUL-front
-            fi
-
-            # Create project directory
             sudo mkdir -p /home/ec2-user/OHNEUL-front
             sudo chown -R ec2-user:ec2-user /home/ec2-user/OHNEUL-front
 
-            # Clone the repository
-            cd /home/ec2-user
-            git clone https://github.com/Project-Ohneul/OHNEUL-front.git
-            
-            # Change to project directory
+      - name: Set environment
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
             cd /home/ec2-user/OHNEUL-front
-
-            # Set env
             echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" > .env
             echo "REACT_APP_TOSS_PAYMENTS_CLIENT_KEY=${{ secrets.REACT_APP_TOSS_PAYMENTS_CLIENT_KEY }}" >> .env
             echo "REACT_APP_TOSS_PAYMENTS_SECRET_KEY=${{ secrets.REACT_APP_TOSS_PAYMENTS_SECRET_KEY }}" >> .env
 
-            # Clean npm & install dependencies
-            npm cache clean --force
+      - name: Install project dependencies
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ec2-user/OHNEUL-front
+            git pull origin main
             npm install
 
-            # Build project
-            npm run build
+      # - name: Build project
+      #   uses: appleboy/ssh-action@v0.1.6
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       cd /home/ec2-user/OHNEUL-front
+      #       npm run build
 
-            # Restart server
-            pm2 restart ohneul-client || pm2 start npm --name ohneul-client -- start:dev
+      # - name: Restart server
+      #   uses: appleboy/ssh-action@v0.1.6
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       pm2 restart ohneul-client || pm2 start npm --name ohneul-client -- start:dev
 
-            # Check PM2 list
-            pm2 list
+      # - name: Check PM2 list
+      #   uses: appleboy/ssh-action@v0.1.6
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USER }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       pm2 list
