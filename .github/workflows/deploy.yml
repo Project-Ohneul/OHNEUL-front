@@ -43,14 +43,21 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # Delete folders if they exist
+            if [ -d /home/ec2-user/OHNEUL-front ]; then
+              sudo rm -rf /home/ec2-user/OHNEUL-front
+            fi
+
             # Create project directory
             sudo mkdir -p /home/ec2-user/OHNEUL-front
             sudo chown -R ec2-user:ec2-user /home/ec2-user/OHNEUL-front
 
-            # Pull
+            # Clone the repository
+            cd /home/ec2-user
+            git clone https://github.com/Project-Ohneul/OHNEUL-front.git
+            
+            # Change to project directory
             cd /home/ec2-user/OHNEUL-front
-            git remote update
-            git pull origin main
 
             # Set env
             echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" > .env
@@ -58,7 +65,6 @@ jobs:
             echo "REACT_APP_TOSS_PAYMENTS_SECRET_KEY=${{ secrets.REACT_APP_TOSS_PAYMENTS_SECRET_KEY }}" >> .env
 
             # Clean npm & install dependencies
-            rm -rf node_modules
             npm cache clean --force
             npm ci
 
