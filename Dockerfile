@@ -1,29 +1,25 @@
+# 빌드
 FROM node:latest AS build
-# 작업할 디렉토리!
-RUN mkdir -p /var/app
-# 작업할 디렉토리!
+
+# 작업 디렉토리 생성
 WORKDIR /var/app
-# 모듈 설치~
-# COPY package.json package-lock.json ./
 
-COPY . .
-
+# 패키지 파일을 먼저 복사하고 의존성 설치
+COPY package*.json ./
 RUN npm install
 
+# 소스 코드 복사 및 애플리케이션 빌드
+COPY . .
 RUN npm run build
 
-RUN npm install -g serve
+# 최종 이미지 단계
+FROM nginx:alpine
 
-EXPOSE 3000
- 
-# nginx 이미지
-# FROM nginx:latest
-# RUN chmod -R 777 /var/cache/nginx/client_temp
-# COPY nginx.conf /etc/nginx/nginx.conf
-# COPY --from=build /var/app/build /usr/share/nginx/html
+# Nginx의 기본 설정 파일을 사용하여 빌드된 애플리케이션을 제공
+COPY --from=build /var/app/build /usr/share/nginx/html
 
-# EXPOSE 80
+# Nginx 포트 열기
+EXPOSE 80
 
-# CMD ["nginx", "-g", "daemon off;"]
-# CMD ["npm start", "build/index.html"]
-CMD ["serve", "-s", "build"]
+# Nginx 시작
+CMD ["nginx", "-g", "daemon off;"]
