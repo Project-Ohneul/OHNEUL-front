@@ -25,7 +25,7 @@ const CoinUsageDetails = () => {
     const fetchUsage = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/coin-history/${userId}`,
+          `${process.env.REACT_APP_BASE_URL}/api/coin-history/${userId}`,
         );
         setUsage(response.data);
       } catch (error) {

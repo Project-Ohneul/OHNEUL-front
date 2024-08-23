@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const delUser = async (selectedUser: any) => {
   const fetchUser = await axios.delete(
-    `http://localhost:4000/users/${selectedUser}`,
+    `${process.env.REACT_APP_BASE_URL}/api/users/${selectedUser}`,
   );
   return fetchUser;
 };

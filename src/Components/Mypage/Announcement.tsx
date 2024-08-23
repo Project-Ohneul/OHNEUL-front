@@ -46,7 +46,7 @@ const Announcement: React.FC = () => {
     const fetchAnnouncements = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/notices`,
+          `${process.env.REACT_APP_BASE_URL}/api/notices`,
         );
         const sortedAnnouncements = response.data.sort(
           (a: any, b: any) =>

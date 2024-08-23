@@ -9,7 +9,7 @@ interface Props {
 
 export const fetchGetOneUserHobby = async (userId: string) => {
   const response = await axios.get(
-    `${process.env.REACT_APP_BASE_URL}/user-hobby/${userId}`,
+    `${process.env.REACT_APP_BASE_URL}/api/user-hobby/${userId}`,
   );
   return response.data;
 };

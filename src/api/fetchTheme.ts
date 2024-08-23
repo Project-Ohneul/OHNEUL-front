@@ -6,7 +6,9 @@ interface Themes {
 }
 
 const fetchGetThemes = async (): Promise<Themes[]> => {
-  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/themes`);
+  const response = await axios.get(
+    `${process.env.REACT_APP_BASE_URL}/api/themes`,
+  );
   return response.data;
 };
 

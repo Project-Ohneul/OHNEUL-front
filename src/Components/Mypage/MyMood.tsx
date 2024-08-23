@@ -48,10 +48,10 @@ const MyMood = () => {
     ['mymood'],
     async () => {
       const allMoodResponse = await axios
-        .get(`${process.env.REACT_APP_BASE_URL}/moods`)
+        .get(`${process.env.REACT_APP_BASE_URL}/api/moods`)
         .then((res) => res.data);
       const userMoodResponse = await axios
-        .get(`${process.env.REACT_APP_BASE_URL}/users/${userId}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/api/users/${userId}`)
         .then((res) => res.data.mood_id);
       const mood = (): void => {
         const res = [];

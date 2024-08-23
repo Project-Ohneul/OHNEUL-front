@@ -14,7 +14,7 @@ const StarRating = () => {
   const fetchScore = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_URL}/users/${userId}`,
+        `${process.env.REACT_APP_BASE_URL}/api/users/${userId}`,
       );
       const { score } = response.data;
       const myScore = Number(score);
@@ -56,7 +56,10 @@ const StarRating = () => {
             }}
           >
             <TiStarOutline size="50" />{' '}
-            <p style={{ marginTop: '5px',fontSize:'12px' }}>등록된 점수가 없습니다</p>.
+            <p style={{ marginTop: '5px', fontSize: '12px' }}>
+              등록된 점수가 없습니다
+            </p>
+            .
           </div>
         ) : (
           <Stars>

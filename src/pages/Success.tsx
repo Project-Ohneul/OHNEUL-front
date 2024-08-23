@@ -33,7 +33,7 @@ function Success() {
   async function confirmPayment() {
     try {
       const response = await axios.post(
-        'http://localhost:4000/payments/confirm',
+        `${process.env.REACT_APP_BASE_URL}/api/payments/confirm`,
         userPaymentData,
         {
           headers: {

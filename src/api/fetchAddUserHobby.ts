@@ -14,7 +14,7 @@ const fetchAddUserHobby = (
   userHobby: UserHobby,
 ): Promise<AddUserHobbyResponse> => {
   return axios.post(
-    `${process.env.REACT_APP_BASE_URL}/user-hobby/join`,
+    `${process.env.REACT_APP_BASE_URL}/api/user-hobby/join`,
     userHobby,
   );
 };

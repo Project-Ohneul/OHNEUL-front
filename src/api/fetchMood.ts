@@ -2,7 +2,9 @@ import axios from 'axios';
 
 export const fetchGetMood = async (): Promise<Mood[]> => {
   try {
-    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/moods`);
+    const response = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/api/moods`,
+    );
     return response.data;
   } catch (error) {
     throw new Error('전체 기분 데이터 가져오기 실패');
@@ -17,7 +19,7 @@ export interface Mood {
 export const fetchUserMood = async (otherId: string): Promise<string> => {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/users/${otherId}`,
+      `${process.env.REACT_APP_BASE_URL}/api/users/${otherId}`,
     );
     const otherMoodId = response.data.mood_id;
 

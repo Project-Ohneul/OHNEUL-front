@@ -8,7 +8,7 @@ interface Data {
 const updateUserData = async (userData: Data): Promise<Data> => {
   const userId = extractUserId();
   return axios.patch(
-    `${process.env.REACT_APP_BASE_URL}/users/${userId}`,
+    `${process.env.REACT_APP_BASE_URL}/api/users/${userId}`,
     userData,
   );
 };

@@ -19,7 +19,7 @@ const fetchGetUserCoinHistory = async (
   userId: string,
 ): Promise<ScoreProps[]> => {
   const response = await axios.get(
-    `${process.env.REACT_APP_BASE_URL}/coin-history/${userId}`,
+    `${process.env.REACT_APP_BASE_URL}/api/coin-history/${userId}`,
   );
   return response.data;
 };

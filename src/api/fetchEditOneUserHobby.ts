@@ -8,7 +8,7 @@ export const updateHobbies = async (hobbies: any) => {
   const [userId] = meltedCookie();
   try {
     const response = await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/hobbies/${userId}`,
+      `${process.env.REACT_APP_BASE_URL}/api/hobbies/${userId}`,
       hobbies,
     );
     return response.data;

@@ -34,7 +34,7 @@ function SocialImage() {
   const flatform = extractFlatform();
 
   useEffect(() => {
-    console.log(flatform)
+    console.log(flatform);
     const fetchUserName = async () => {
       if (!userId) {
         console.error('User ID is null or undefined');
@@ -42,7 +42,7 @@ function SocialImage() {
       }
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/users/${userId}`,
+          `${process.env.REACT_APP_BASE_URL}/api/users/${userId}`,
         );
         const userName = response.data.username;
         if (userName) {

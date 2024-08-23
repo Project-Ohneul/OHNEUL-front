@@ -19,16 +19,19 @@ function Nickname() {
   };
 
   const fetchAddUserNickname = async (username: string): Promise<string> => {
-    return axios.patch(`${process.env.REACT_APP_BASE_URL}/users/${userId}`, {
-      username,
-    });
+    return axios.patch(
+      `${process.env.REACT_APP_BASE_URL}/api/users/${userId}`,
+      {
+        username,
+      },
+    );
   };
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/users/${userId}`,
+          `${process.env.REACT_APP_BASE_URL}/api/users/${userId}`,
         );
         if (response.data.username) goHobbt();
       } catch (e) {

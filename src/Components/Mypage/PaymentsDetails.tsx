@@ -31,7 +31,7 @@ const PaymentsDetails = () => {
     const fetchPayments = async () => {
       try {
         const paymentDetail: any = await axios.get(
-          `${process.env.REACT_APP_BASE_URL}/payments/${userId}`,
+          `${process.env.REACT_APP_BASE_URL}/api/payments/${userId}`,
         );
         setData(paymentDetail.data);
       } catch (error) {

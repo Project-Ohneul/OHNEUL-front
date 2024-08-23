@@ -51,10 +51,10 @@ const Interest = () => {
     ['myhobby'],
     async () => {
       const allHobbiesResponse: any = await axios
-        .get(`${process.env.REACT_APP_BASE_URL}/hobbies`)
+        .get(`${process.env.REACT_APP_BASE_URL}/api/hobbies`)
         .then((res) => res.data);
       const userHobbieseResponse: any = await axios
-        .get(`${process.env.REACT_APP_BASE_URL}/user-hobby/${userId}`)
+        .get(`${process.env.REACT_APP_BASE_URL}/api/user-hobby/${userId}`)
         .then((res) => res.data);
       const hobby = () => {
         const res = [];

@@ -8,7 +8,7 @@ interface Hobby {
 const fetchGetHobbys = async (): Promise<Hobby[]> => {
   try {
     const response = await axios.get<Hobby[]>(
-      `${process.env.REACT_APP_BASE_URL}/hobbies`,
+      `${process.env.REACT_APP_BASE_URL}/api/hobbies`,
     );
     return response.data;
   } catch (e) {

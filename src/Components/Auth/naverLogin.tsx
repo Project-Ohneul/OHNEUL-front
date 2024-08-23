@@ -20,7 +20,7 @@ const NaverLoginButton = styled.button`
   }
 `;
 const NaverLogin: React.FC = () => {
-  const NaverAuthRoot = `${process.env.REACT_APP_BASE_URL}/login/naver`;
+  const NaverAuthRoot = `${process.env.REACT_APP_BASE_URL}/api/login/naver`;
 
   const loginRedirect = () => {
     window.location.href = NaverAuthRoot;

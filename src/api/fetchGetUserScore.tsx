@@ -3,7 +3,7 @@ import axios from 'axios';
 const fetchGetUserScore = async (userId: string): Promise<string> => {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/users/${userId}`,
+      `${process.env.REACT_APP_BASE_URL}/api/users/${userId}`,
     );
     return response.data.score;
   } catch (error) {

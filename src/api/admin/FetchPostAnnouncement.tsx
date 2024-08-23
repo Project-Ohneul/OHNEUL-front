@@ -3,7 +3,7 @@ import axios from 'axios';
 const FetchPostAnnouncement = async (title: string, notice: string) => {
   try {
     const announcementFetch = await axios.post(
-      'http://localhost:4000/notices',
+      `${process.env.REACT_APP_BASE_URL}/api/notices`,
       {
         title,
         notice,

@@ -20,7 +20,7 @@ const KakaoLoginButton = styled.button`
 `;
 
 const KakaoLogin: React.FC = () => {
-  const KakaoAuthRoot = `${process.env.REACT_APP_BASE_URL}/login/kakao`;
+  const KakaoAuthRoot = `${process.env.REACT_APP_BASE_URL}/api/login/kakao`;
   function loginRedirect(): void {
     window.location.href = KakaoAuthRoot;
   }
