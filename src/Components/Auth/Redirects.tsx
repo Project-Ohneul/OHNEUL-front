@@ -11,8 +11,11 @@ const Redirects: React.FC = () => {
 
   useEffect(() => {
     const fetchToken = async () => {
+      const token = document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('refreshToken='));
       try {
-        if (document.cookie) {
+        if (token) {
           navigate('/');
         }
       } catch (error) {
