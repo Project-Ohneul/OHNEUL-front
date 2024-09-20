@@ -57,9 +57,9 @@ function Hobby() {
         user_id: userId,
         hobby_id: userSelectHobby,
       });
-      navigate('/mood');
+      navigate('/home/mood');
     } catch (e) {
-      navigate('/mood');
+      navigate('/home/mood');
     }
   };
 

@@ -6,8 +6,8 @@ import appLogo from '../../../assets/images/appLogo.png';
 function Logo() {
   const navigate = useNavigate();
   const goToThemePage = useCallback(() => {
-    navigate('/theme');
-  },[])
+    navigate('/home/theme');
+  }, []);
 
   return (
     <LogoContainer onClick={goToThemePage}>
