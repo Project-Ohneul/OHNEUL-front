@@ -25,7 +25,7 @@ import Announcement from 'Components/Mypage/Announcement';
 import AnnouncementDetail from 'Components/Mypage/AnnouncementDetail';
 import PrivateRoute from './PrivateRoute';
 
-const socket = io(`${process.env.REACT_APP_BASE_URL}`);
+const socket = io(`${process.env.REACT_APP_SOCKET_URL}:4000`);
 
 function AppRouter() {
   return (
