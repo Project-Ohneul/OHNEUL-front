@@ -12,7 +12,7 @@ const useCheckHobbiesAndNavigate = () => {
       try {
         const user = await fetchGetOneUserHobby(userId);
         if (Object.keys(user).length > 0) {
-          navigate('/home/mood');
+          navigate('/mood');
         }
       } catch (error) {
         throw new Error('유저 취미 데이터 확인 실패');

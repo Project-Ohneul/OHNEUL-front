@@ -6,7 +6,7 @@ import appLogo from '../../../assets/images/appLogo.png';
 function Logo() {
   const navigate = useNavigate();
   const goToThemePage = useCallback(() => {
-    navigate('/home/theme');
+    navigate('/theme');
   }, []);
 
   return (

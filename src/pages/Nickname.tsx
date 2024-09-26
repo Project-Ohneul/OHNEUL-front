@@ -15,7 +15,7 @@ function Nickname() {
   const navigator = useNavigate();
 
   const goHobbt = () => {
-    navigator('/home/favorite');
+    navigator('/favorite');
   };
 
   const fetchAddUserNickname = async (username: string): Promise<string> => {

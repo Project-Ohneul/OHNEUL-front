@@ -6,7 +6,7 @@ import { styled } from 'styled-components';
 function MypageIcon() {
   const navigate = useNavigate();
   const goToMyPage = useCallback(() => {
-    navigate('/home/mypage');
+    navigate('/mypage');
   }, []);
   return <IconPerson onClick={goToMyPage} />;
 }

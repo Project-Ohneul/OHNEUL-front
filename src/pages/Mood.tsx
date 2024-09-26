@@ -64,7 +64,7 @@ function Mood() {
       addUserMood({
         mood_id: seletedMood,
       });
-      navigate('/home/theme');
+      navigate('/theme');
     } else {
       handleCompanyInfoClick();
     }
@@ -72,7 +72,7 @@ function Mood() {
 
   const handleCompanyInfoClick = () => {
     if (alertModal === true) {
-      navigate('/home/mood');
+      navigate('/mood');
     } else {
       setAlertModal(true);
     }

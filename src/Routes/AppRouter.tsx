@@ -35,7 +35,7 @@ function AppRouter() {
         <Route path="/login/naver" element={<Redirects />} />
         <Route path="/" element={<Login />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<Home />}>
+          <Route path="/" element={<Home />}>
             <Route path="favorite" element={<Favorite />} />
             <Route path="mood" element={<Mood />} />
             <Route path="theme" element={<Theme socket={socket} />} />
