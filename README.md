@@ -52,14 +52,18 @@ Ohneul은 일상 생활에서 지치고 힘들지만 누군가에게 속마음�
     - 소셜로그인, 유저 정보 확인, 관리자
 ### 😎강수진
 - **기능**
-    - 
+    - 유저 정보 & 취미, 기분, 대화 주제, 주문 내역, 결제, 소켓(메시지 수신 및 발신, 주제에 따른 매칭)
+    - 데이터베이스 연결(mariaDB)
+    - ec2연결(nginx, pm2, github actions 사용)
 ### 🐬김정운
 - **기능**
-    - 
+    - 유저 정보, 로그인, 접속 보상 지급, 공지, 코인 사옹 내역, 유저 신고
+    - 데이터베이스 연결(mariaDB)
+    - ec2연결(nginx, pm2, github actions 사용)
 
 ## 개발 환경
 - Front-end : React, TypeScript, Styled-Components, React-Query, Redux Toolkit
-- Back-end : 제공된 API 활용
+- Back-end : MySQL, nodeJS, nestJS, AWS, socket.io, nginx, naver login api, kakao login api
 - 협업 툴 : Discord, Notion, Github
 - 서비스 배포 환경 : Ec2
 
