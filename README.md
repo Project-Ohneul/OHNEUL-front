@@ -1,6 +1,6 @@
 # 👫 랜덤 채팅 서비스 웹
 
-- 서비스 URL : http://3.39.134.56:3000
+- 서비스 URL : http://3.39.134.56
   
 <p align='center'>
     <img width="200" alt="스크린샷 2024-06-05 오후 4 41 27" src="https://github.com/Project-Ohneul/.github/assets/133184988/940a3cab-e904-4149-ad68-22c103e71dba">
